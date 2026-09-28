@@ -54,9 +54,10 @@ def numeric_params(draw_function: Callable[..., Any]) -> list[tuple[str, type, A
     return params
 
 
-def add_common_arguments(parser: argparse.ArgumentParser) -> None:
+def add_common_arguments(parser: argparse.ArgumentParser, skipped: tuple[str, ...] = ()) -> None:
     for arg_name, arg_config in COMMON_ARGS.items():
-        parser.add_argument(arg_name, **arg_config)
+        if arg_name not in skipped:
+            parser.add_argument(arg_name, **arg_config)
     return
 
 
@@ -83,6 +84,9 @@ def build_parser() -> argparse.ArgumentParser:
     design_parser.add_argument("design_number", type=int, help="Design number to draw (1-252)")
     add_common_arguments(design_parser)
 
+    check_parser = subparsers.add_parser("check", help="Draw every numbered design once, then exit")
+    add_common_arguments(check_parser, skipped=("--output",))
+
     return parser
 
 
@@ -91,16 +95,6 @@ def inject_canvas_size(draw_function: Callable[..., Any], params: dict[str, Any]
     if "NP" in inspect.signature(draw_function).parameters and "NP" not in params:
         params["NP"] = size
     return
-
-
-def resolve_shape(args: argparse.Namespace, size: int) -> tuple[Callable[..., Any], dict[str, Any], tuple | None]:
-    draw_function = SHAPES[args.shape_name]
-
-    skipped = {"command", "shape_name", "animation", "output", "width", "height"}
-    params = {name: value for name, value in vars(args).items() if name not in skipped and value is not None}
-    inject_canvas_size(draw_function, params, size)
-
-    return draw_function, params, SHAPE_WORLDS.get(args.shape_name)
 
 
 def resolve_design(args: argparse.Namespace, size: int) -> tuple[Callable[..., Any], dict[str, Any], tuple | None]:
@@ -135,30 +129,14 @@ def setup_canvas(width: int, height: int, animation: str, world: tuple | None) -
     return
 
 
-def post_processing(pts: list[tuple[float, float]] | None, name: str | None) -> None:
-    """Finalize drawing and optionally export CAD data."""
-    turtle.hideturtle()
-    turtle.update()
-
-    if pts and name:
-        generate_cad(pts, name)
-
-    turtle.exitonclick()
-    return
-
-
-def test_everything(width: int = 480, height: int = 480, animation: str = "instant") -> None:
+def check_designs(args: argparse.Namespace, size: int) -> None:
     """Draw every design sequentially, resetting the canvas between designs."""
-    size = min(width, height)
-
     for index, number in enumerate(sorted(DESIGNS), start=1):
-        design = DESIGNS[number]
+        args.design_number = number
+        draw_function, params, world = resolve_design(args, size)
 
-        params = dict(design.params)
-        inject_canvas_size(design.draw, params, size)
-
-        setup_canvas(width, height, animation, design.world)
-        capture_points(design.draw)(**params)
+        setup_canvas(args.width, args.height, args.animation, world)
+        capture_points(draw_function)(**params)
         turtle.update()
 
         # reset after each design to avoid overlap
@@ -172,10 +150,36 @@ def test_everything(width: int = 480, height: int = 480, animation: str = "insta
     return
 
 
+def resolve_shape(args: argparse.Namespace, size: int) -> tuple[Callable[..., Any], dict[str, Any], tuple | None]:
+    draw_function = SHAPES[args.shape_name]
+
+    skipped = {"command", "shape_name", "animation", "output", "width", "height"}
+    params = {name: value for name, value in vars(args).items() if name not in skipped and value is not None}
+    inject_canvas_size(draw_function, params, size)
+
+    return draw_function, params, SHAPE_WORLDS.get(args.shape_name)
+
+
+def post_processing(pts: list[tuple[float, float]] | None, name: str | None) -> None:
+    """Finalize drawing and optionally export CAD data."""
+    turtle.hideturtle()
+    turtle.update()
+
+    if pts and name:
+        generate_cad(pts, name)
+
+    turtle.exitonclick()
+    return
+
+
 def main() -> int:
     parser = build_parser()
     args = parser.parse_args()
     size = min(args.width, args.height)
+
+    if args.command == "check":
+        check_designs(args, size)
+        return 0
 
     if args.command == "shape":
         draw_function, params, world = resolve_shape(args, size)
