@@ -2,13 +2,17 @@
 
 import argparse
 import inspect
+import pathlib
 import sys
 import turtle
 from typing import Any, Callable
 
-from dessins.cad import Path, generate_cad, record_paths
+from dessins.cad.export import build_model, write_stl
+from dessins.cad.paths import Path, record_paths
 from dessins.designs import DESIGNS
 from dessins.shapes import SHAPES
+
+OUTPUT_DIR = pathlib.Path("output")
 
 COMMON_ARGS = {
     "--animation": {
@@ -21,7 +25,23 @@ COMMON_ARGS = {
         "type": str,
         "default": None,
         "required": False,
-        "help": "Output file name (default: No file output)",
+        "help": "STL file name, written to output/ (default: no STL)",
+    },
+    "--line-width": {
+        "type": float,
+        "default": 3.5,
+        "required": False,
+        "help": "Stroke width of the STL lines, in canvas units (default: 3.5)",
+    },
+    "--depth": {
+        "type": float,
+        "default": 10,
+        "required": False,
+        "help": "Extrusion depth of the STL, in canvas units (default: 10)",
+    },
+    "--smooth": {
+        "action": "store_true",
+        "help": "Fit a spline through the points before stroking the STL (for curves)",
     },
     "--width": {
         "type": int,
@@ -85,7 +105,7 @@ def build_parser() -> argparse.ArgumentParser:
     add_common_arguments(design_parser)
 
     check_parser = subparsers.add_parser("check", help="Draw every numbered design once, then exit")
-    add_common_arguments(check_parser, skipped=("--output",))
+    add_common_arguments(check_parser, skipped=("--output", "--line-width", "--depth", "--smooth"))
 
     return parser
 
@@ -153,20 +173,28 @@ def check_designs(args: argparse.Namespace, size: int) -> None:
 def resolve_shape(args: argparse.Namespace, size: int) -> tuple[Callable[..., Any], dict[str, Any], tuple | None]:
     draw_function = SHAPES[args.shape_name]
 
-    skipped = {"command", "shape_name", "animation", "output", "width", "height"}
+    skipped = {"command", "shape_name", "animation", "output", "line_width", "depth", "smooth", "width", "height"}
     params = {name: value for name, value in vars(args).items() if name not in skipped and value is not None}
     inject_canvas_size(draw_function, params, size)
 
     return draw_function, params, SHAPE_WORLDS.get(args.shape_name)
 
 
-def post_processing(paths: list[Path], name: str | None) -> None:
-    """Finalize drawing and optionally export CAD data."""
+def export_stl(paths: list[Path], args: argparse.Namespace) -> None:
+    mesh = build_model(paths, args.line_width, args.depth, args.smooth)
+    file = OUTPUT_DIR / f"{args.output}.stl"
+    write_stl(mesh, file)
+    print(f"Wrote {file} ({len(mesh.triangles)} triangles)")
+    return
+
+
+def post_processing(paths: list[Path], args: argparse.Namespace) -> None:
+    """Finalize drawing and optionally export the STL."""
     turtle.hideturtle()
     turtle.update()
 
-    if paths and name:
-        generate_cad(paths, name)
+    if paths and args.output:
+        export_stl(paths, args)
 
     turtle.exitonclick()
     return
@@ -191,7 +219,7 @@ def main() -> int:
 
     setup_canvas(args.width, args.height, args.animation, world)
     paths = record_paths(draw_function, **params)
-    post_processing(paths, args.output)
+    post_processing(paths, args)
     return 0
 
 

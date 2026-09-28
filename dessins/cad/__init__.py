@@ -1,6 +1,5 @@
-"""Pipeline from recorded turtle paths to a printable STL."""
+"""Pipeline from recorded turtle paths to a printable STL: record, smooth, stroke, extrude, write.
 
-from .cad import generate_cad
-from .paths import Path, record_paths
-
-__all__ = ["Path", "generate_cad", "record_paths"]
+paths.py records with turtle, geometry.py is pure, export.py talks to manifold3d and the filesystem.
+Import the edge modules directly so geometry stays importable without turtle or manifold3d.
+"""

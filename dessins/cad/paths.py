@@ -3,7 +3,7 @@
 import turtle
 from typing import Any, Callable
 
-Path = list[tuple[float, float]]
+from .geometry import Path
 
 
 class PathRecorder:
