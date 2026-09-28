@@ -10,14 +10,11 @@ def draw_prettygon(
     RR: float = 480 * 0.80,
     initial_y: float = 0,
     NP: int = 480,
-) -> list[tuple[float, float]]:
+) -> None:
     X = (NP - RR) / 2
     Y = initial_y
 
-    pts: list[tuple[float, float]] = []
-
     turtle.penup()
-    pts.append((X, Y))
     turtle.goto(X, Y)
     turtle.pendown()
 
@@ -26,11 +23,10 @@ def draw_prettygon(
         Y += RR * math.sin(AA)
         # TODO: add alternative function for design_33
 
-        pts.append((X, Y))
         turtle.goto(X, Y)
 
         AA += AN
         RR *= RA
 
-    return pts
+    return
 

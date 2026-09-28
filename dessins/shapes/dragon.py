@@ -12,8 +12,7 @@ def draw_dragon(
     A_initializer: Callable[[int], list[int]] = default_A_func,
     initial_values: list[float] = [480 / 3, 480 / 2, -math.pi / 4 * (10 - 2), 480 / math.sqrt(2) ** 10],
     NP: int = 480,
-) -> list[tuple[float, float]]:
-    pts: list[tuple[float, float]] = []
+) -> None:
     A = A_initializer(N)
 
     X0, Y0, A0, L0 = initial_values
@@ -59,10 +58,7 @@ def draw_dragon(
         mid_y2 = (Y2 + 3 * Y1) / 4
 
         turtle.goto(mid_x1, mid_y1)
-        pts.append((mid_x1, mid_y1))
-
         turtle.goto(mid_x2, mid_y2)
-        pts.append((mid_x2, mid_y2))
 
-    return pts
+    return
 

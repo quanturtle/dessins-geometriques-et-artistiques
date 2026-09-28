@@ -31,10 +31,8 @@ def draw_simple_fractal_deformed(M: int = 3,
                                  L: list[float] = None,
                                  A: list[float] = None,
                                  deformation_func: Callable = default_deformation_subroutine,
-                                 NP: int = 480) -> list[tuple[int, int]]:
-    pts = []
-
-    if X is None:    
+                                 NP: int = 480) -> None:
+    if X is None:
         X = [NP/2 * (1 + math.sin(2 * i * math.pi / 3)) for i in range(M+1)]
     if Y is None:
         Y = [NP/2 * (1 + math.cos(2 * i * math.pi / 3)) for i in range(M+1)]
@@ -53,8 +51,7 @@ def draw_simple_fractal_deformed(M: int = 3,
         turtle.penup()
         turtle.goto(X1, Y1)
         turtle.pendown()
-        pts.append((X1, Y1))
-        
+
         if XA != XD:
             A0 = math.atan((YA - YD)/(XA - XD))
         
@@ -86,6 +83,5 @@ def draw_simple_fractal_deformed(M: int = 3,
             X1, Y1 = deformation_func(X0, Y0, NP)
         
             turtle.goto(X1, Y1)
-            pts.append((X1, Y1))
-            
-    return pts
+
+    return
