@@ -1,6 +1,6 @@
-"""CAD utilities exposed for external use."""
+"""Pipeline from recorded turtle paths to a printable STL."""
 
 from .cad import generate_cad
-from .points import capture_points
+from .paths import Path, record_paths
 
-__all__ = ["generate_cad", "capture_points"]
+__all__ = ["Path", "generate_cad", "record_paths"]

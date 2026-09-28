@@ -1,15 +1,18 @@
-from pathlib import Path
+from pathlib import Path as FilePath
 
 from build123d import *
 
-OUTPUT_DIR = Path("output")
+from .paths import Path
+
+OUTPUT_DIR = FilePath("output")
 
 
-def generate_cad(pts: list[tuple[float, float]], name: str | None) -> None:
+def generate_cad(paths: list[Path], name: str | None) -> None:
     with BuildPart() as part:
         with BuildSketch(Plane.XZ) as s:
             with BuildLine() as l:
-                l1 = Polyline(*pts)
+                for path in paths:
+                    Polyline(*path)
 
             trace(line_width=3.5)
 

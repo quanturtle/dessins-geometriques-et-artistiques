@@ -6,7 +6,7 @@ import sys
 import turtle
 from typing import Any, Callable
 
-from dessins.cad import capture_points, generate_cad
+from dessins.cad import Path, generate_cad, record_paths
 from dessins.designs import DESIGNS
 from dessins.shapes import SHAPES
 
@@ -136,7 +136,7 @@ def check_designs(args: argparse.Namespace, size: int) -> None:
         draw_function, params, world = resolve_design(args, size)
 
         setup_canvas(args.width, args.height, args.animation, world)
-        capture_points(draw_function)(**params)
+        record_paths(draw_function, **params)
         turtle.update()
 
         # reset after each design to avoid overlap
@@ -160,13 +160,13 @@ def resolve_shape(args: argparse.Namespace, size: int) -> tuple[Callable[..., An
     return draw_function, params, SHAPE_WORLDS.get(args.shape_name)
 
 
-def post_processing(pts: list[tuple[float, float]] | None, name: str | None) -> None:
+def post_processing(paths: list[Path], name: str | None) -> None:
     """Finalize drawing and optionally export CAD data."""
     turtle.hideturtle()
     turtle.update()
 
-    if pts and name:
-        generate_cad(pts, name)
+    if paths and name:
+        generate_cad(paths, name)
 
     turtle.exitonclick()
     return
@@ -190,8 +190,8 @@ def main() -> int:
         return 1
 
     setup_canvas(args.width, args.height, args.animation, world)
-    pts = capture_points(draw_function)(**params)
-    post_processing(pts, args.output)
+    paths = record_paths(draw_function, **params)
+    post_processing(paths, args.output)
     return 0
 
 
