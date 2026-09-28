@@ -25,7 +25,7 @@ def compute_z_185(x: float, y: float, NP: int) -> float:
     Y7 = 2 * y - 1
 
     if X7*Y7 != 0:
-        z = 3 * NP/4 * X7 * Y7 * (X7 * Y7 - Y7 * Y7)
+        z = 3 * NP/4 * X7 * Y7 * (X7 * X7 - Y7 * Y7) / (X7 * X7 + Y7 * Y7)
     else:
         z = 0
 
