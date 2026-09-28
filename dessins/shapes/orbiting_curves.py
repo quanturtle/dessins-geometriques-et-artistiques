@@ -7,12 +7,12 @@ def default_r2_func(N: float, i: int, NP: int) -> float:
     return NP * 0.2 * (1 - i / N)
 
 
-def default_x_func(NP: int, A1: float, A2: float, R1: float, R2: float, K1: int, K2: int) -> int:
-    return int(NP * 0.5 + R1 * math.cos(K1 * A1) + R2 * math.cos(A2))
+def default_x_func(NP: int, A1: float, A2: float, R1: float, R2: float, K1: int, K2: int) -> float:
+    return NP * 0.5 + R1 * math.cos(K1 * A1) + R2 * math.cos(A2)
 
 
-def default_y_func(NP: int, A1: float, A2: float, R1: float, R2: float, K1: int, K2: int) -> int:
-    return int(NP * 0.5 + R1 * math.sin(K2 * A1) + R2 * math.sin(A2))
+def default_y_func(NP: int, A1: float, A2: float, R1: float, R2: float, K1: int, K2: int) -> float:
+    return NP * 0.5 + R1 * math.sin(K2 * A1) + R2 * math.sin(A2)
 
 
 def draw_orbiting_curves(

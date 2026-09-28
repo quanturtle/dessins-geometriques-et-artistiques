@@ -49,8 +49,8 @@ def draw_elastic_grid(
                 X = DI * math.cos(AN)
                 Y = DI * math.sin(AN)
 
-                X_ = int(NP / 2 * (1 + 0.95 * X))
-                Y_ = int(NP / 2 * (1 + 0.95 * Y))
+                X_ = NP / 2 * (1 + 0.95 * X)
+                Y_ = NP / 2 * (1 + 0.95 * Y)
 
                 if J == 0:
                     turtle.penup()

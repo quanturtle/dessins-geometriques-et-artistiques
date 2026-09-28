@@ -3,12 +3,12 @@ import turtle
 from typing import Callable
 
 
-def default_compute_X(NP: int, K1: float, i: int, N: int) -> int:
-    return int(NP * 0.5 * (1 + math.sin(K1 * i * math.pi / N)))
+def default_compute_X(NP: int, K1: float, i: int, N: int) -> float:
+    return NP * 0.5 * (1 + math.sin(K1 * i * math.pi / N))
 
 
-def default_compute_Y(NP: int, K2: float, i: int, N: int) -> int:
-    return int(NP * 0.75 * (1 + math.cos(K2 * i * math.pi / N)))
+def default_compute_Y(NP: int, K2: float, i: int, N: int) -> float:
+    return NP * 0.75 * (1 + math.cos(K2 * i * math.pi / N))
 
 
 def default_I1_func(i: int, H: int, N: int) -> int:

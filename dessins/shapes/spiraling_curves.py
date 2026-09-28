@@ -7,8 +7,8 @@ def default_AN_func(i: int, N: int) -> float:
     return 2 * math.pi * i / N
 
 
-def default_Y_func(NP: int, YY: float) -> int:
-    return int(NP / 2 * (1 + YY))
+def default_Y_func(NP: int, YY: float) -> float:
+    return NP / 2 * (1 + YY)
 
 
 def draw_spiraling_curves(
@@ -33,7 +33,7 @@ def draw_spiraling_curves(
         XX = X * CO - Y * SI
         YY = X * SI + Y * CO
 
-        X_ = int(NP / 2 * (1 + XX))
+        X_ = NP / 2 * (1 + XX)
         Y_ = Y_func(NP, YY)
 
         if i == 0:

@@ -40,8 +40,8 @@ def draw_rotating_curves(
 
         if i == 0:
             turtle.penup()
-            turtle.goto(int(X), int(Y))
+            turtle.goto(X, Y)
             turtle.pendown()
         else:
-            turtle.goto(int(X), int(Y))
+            turtle.goto(X, Y)
 

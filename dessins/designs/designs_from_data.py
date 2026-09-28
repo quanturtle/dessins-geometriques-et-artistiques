@@ -69,8 +69,8 @@ def design_35(NP: int = 480) -> None:
                 B = HORSE_DATA[i % len(HORSE_DATA)]
                 i += 1
 
-            X = int(NP * (0.5 + CO * A/90.0 - SI * B/90.0))
-            Y = int(NP * (0.5 + SI * A/90.0 + CO * B/90.0))
+            X = NP * (0.5 + CO * A/90.0 - SI * B/90.0)
+            Y = NP * (0.5 + SI * A/90.0 + CO * B/90.0)
 
             if B1 == 0:
                 turtle.penup()
@@ -106,8 +106,8 @@ def design_36(NP: int = 480) -> None:
                     B = HORSE_DATA[i % len(HORSE_DATA)]
                     i += 1
 
-                X = int(NP/2 + (1-2*J) * NP*A/80 * (0.5**I))
-                Y = int(NP - NP*0.5**I + NP*B/80 * (0.5**I))
+                X = NP/2 + (1-2*J) * NP*A/80 * (0.5**I)
+                Y = NP - NP*0.5**I + NP*B/80 * (0.5**I)
 
                 if B1 == 0:
                     turtle.penup()
@@ -150,8 +150,8 @@ def design_37(NP: int = 480) -> None:
             X_ = 0.15 + A / 110.0
             Y_ = 0.15 + B / 110.0
 
-            X = int(NP * (0.5 + R * (CO * X_ - SI * Y_)))
-            Y = int(NP * (0.5 + R * (SI * X_ + CO * Y_)))
+            X = NP * (0.5 + R * (CO * X_ - SI * Y_))
+            Y = NP * (0.5 + R * (SI * X_ + CO * Y_))
 
             if B1 == 0:
                 turtle.penup()
@@ -187,8 +187,8 @@ def design_38(NP: int = 480) -> None:
                     B = HORSE_DATA[i % len(HORSE_DATA)]
                     i += 1
 
-                X = int((J+A/20) * NP*(0.5**I))
-                Y = int((2-2*.5**I) * NP+B/40 * NP*(0.5**I))
+                X = (J+A/20) * NP*(0.5**I)
+                Y = (2-2*.5**I) * NP+B/40 * NP*(0.5**I)
 
                 if B1 == 0:
                     turtle.penup()
@@ -224,8 +224,8 @@ def design_39(NP: int = 480) -> None:
                     B = HORSE_DATA[i % len(HORSE_DATA)]
                     i += 1
 
-                X = int(NP * (A+J*20) / 80)
-                Y = int(NP * (B+I*20) / 80)
+                X = NP * (A+J*20) / 80
+                Y = NP * (B+I*20) / 80
 
                 if B1 == 0:
                     turtle.penup()
@@ -265,8 +265,8 @@ def design_40(NP: int = 480) -> None:
                 XX = (A+ J*20 -20) / 100
                 YY = (B+ I*20 -20) / 100
 
-                X = int(NP/2 * (XX+1))
-                Y = int(NP/2 * (YY+1))
+                X = NP/2 * (XX+1)
+                Y = NP/2 * (YY+1)
 
                 if B1 == 0:
                     turtle.penup()
@@ -303,8 +303,8 @@ def design_41(NP: int = 480) -> None:
                 XX = (A + J * 20 - 20) / 100.0
                 YY = (B + I * 20 - 20) / 100.0
 
-                X = int((XX * abs(XX) + 1) * NP / 2)
-                Y = int((YY * abs(YY) + 1) * NP / 2)
+                X = (XX * abs(XX) + 1) * NP / 2
+                Y = (YY * abs(YY) + 1) * NP / 2
 
                 if B1 == 0:
                     turtle.penup()
@@ -353,8 +353,8 @@ def design_42(NP: int = 480) -> None:
                 DI = (DI / NP) * 3.0
                 DI = DI / (1 + DI) * NP * 0.65
 
-                X = int(NP / 2 + DI * math.cos(AN))
-                Y = int(NP / 2 + DI * math.sin(AN))
+                X = NP / 2 + DI * math.cos(AN)
+                Y = NP / 2 + DI * math.sin(AN)
 
                 if B1 == 0:
                     turtle.penup()
@@ -395,8 +395,8 @@ def design_43(NP: int = 480) -> None:
                 X_val = (abs(XX) ** 0.7) * sgn(XX) + 1
                 Y_val = (abs(YY) ** 0.7) * sgn(YY) + 1
 
-                X = int(X_val * NP / 2)
-                Y = int(Y_val * NP / 2)
+                X = X_val * NP / 2
+                Y = Y_val * NP / 2
 
                 if B1 == 0:
                     turtle.penup()
@@ -445,8 +445,8 @@ def design_45(NP: int = 480) -> None:
                     B = LION_DATA[i % len(LION_DATA)]
                     i += 1
 
-                X = int(NP*(7+(1-2*(I%2))*(7-A)+4+14*J)/50)
-                Y = int(NP*(4.5+(1-2*(J%2))*(4.5-B)+4+9*I)/50)
+                X = NP*(7+(1-2*(I%2))*(7-A)+4+14*J)/50
+                Y = NP*(4.5+(1-2*(J%2))*(4.5-B)+4+9*I)/50
 
                 if B1 == 0:
                     turtle.penup()
@@ -495,8 +495,8 @@ def design_47(NP: int = 480) -> None:
                     B = BIRD_FISH_DATA[i % len(BIRD_FISH_DATA)]
                     i += 1
 
-                X = int(NP*(B+4*I+4*J)/45)
-                Y = int(NP*(A+15-5*I+9*J)/45)
+                X = NP*(B+4*I+4*J)/45
+                Y = NP*(A+15-5*I+9*J)/45
 
                 if B1 == 0:
                     turtle.penup()
@@ -564,8 +564,8 @@ def design_49(NP: int = 480) -> None:
                 B = SMURF_DATA[i % len(SMURF_DATA)]
                 i += 1
 
-            X = int(NP/100*A*K + NP - NP*K)
-            Y = int(NP/100*B*K)
+            X = NP/100*A*K + NP - NP*K
+            Y = NP/100*B*K
 
             if B1 == 0:
                 B1 = 1

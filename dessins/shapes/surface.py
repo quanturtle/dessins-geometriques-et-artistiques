@@ -89,12 +89,12 @@ def draw_surface(
 
                 Z = compute_z(X, Y, NP)
 
-                XF = int(J * PA)
+                XF = J * PA
 
                 if I2 != I1:
-                    YF = int(((J - I1) * YQ + (I2 - J) * YP) / (I2 - I1) + Z)
+                    YF = ((J - I1) * YQ + (I2 - J) * YP) / (I2 - I1) + Z
                 else:
-                    YF = int(YP + Z)
+                    YF = YP + Z
 
                 XF_t = XF + translate_x
                 YF_t = YF + translate_y

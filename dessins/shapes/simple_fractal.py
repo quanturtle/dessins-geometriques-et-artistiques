@@ -30,7 +30,7 @@ def draw_simple_fractal(
         X0 = XD
         Y0 = YD
 
-        turtle.goto(int(X0 + translateX), int(Y0 + translateY))
+        turtle.goto(X0 + translateX, Y0 + translateY)
         turtle.pendown()
 
         A0 = math.atan2(YA - YD, XA - XD)
@@ -45,7 +45,7 @@ def draw_simple_fractal(
             if K == 0:
                 X0 += LL * math.cos(AA)
                 Y0 += LL * math.sin(AA)
-                turtle.goto(int(X0 + translateX), int(Y0 + translateY))
+                turtle.goto(X0 + translateX, Y0 + translateY)
 
             else:
                 for J in range(K - 1, -1, -1):
@@ -57,5 +57,5 @@ def draw_simple_fractal(
 
                 X0 += LL * math.cos(AA)
                 Y0 += LL * math.sin(AA)
-                turtle.goto(int(X0 + translateX), int(Y0 + translateY))
+                turtle.goto(X0 + translateX, Y0 + translateY)
 

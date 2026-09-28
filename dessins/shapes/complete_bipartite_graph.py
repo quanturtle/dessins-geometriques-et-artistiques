@@ -17,8 +17,8 @@ def draw_complete_bipartite_graph(
         X1 = (i * XA + (N - i) * XB) / N
         Y1 = (i * YA + (N - i) * YB) / N
 
-        x_start = int(X1)
-        y_start = int(Y1)
+        x_start = X1
+        y_start = Y1
 
         for j in range(N + 1):
             turtle.penup()
@@ -27,8 +27,8 @@ def draw_complete_bipartite_graph(
             X2 = (j * XC + (N - j) * XD) / N
             Y2 = (j * YC + (N - j) * YD) / N
 
-            x_end = int(X2)
-            y_end = int(Y2)
+            x_end = X2
+            y_end = Y2
 
             turtle.pendown()
             turtle.goto(x_end, y_end)

@@ -51,8 +51,8 @@ def draw_smurf(NP: int = 480):
             i += 1
 
         
-        X = int(NP * A / 65)
-        Y = int(NP * B / 65)
+        X = NP * A / 65
+        Y = NP * B / 65
         
         if B1 == 0:
             B1 = 1

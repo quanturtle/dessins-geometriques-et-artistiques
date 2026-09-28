@@ -7,7 +7,7 @@ from dessins.shapes import draw_simple_fractal, draw_simple_fractal_deformed, dr
 from .spec import Design
 
 
-def deformation_subroutine_153(X0: int, Y0: int, NP: int = 480) -> tuple[int, int]:
+def deformation_subroutine_153(X0: float, Y0: float, NP: int = 480) -> tuple[float, float]:
     XH = X0/NP*2 - 1
     YH = Y0/NP*2 - 1
     DH = math.sqrt(XH*XH + YH*YH)
@@ -20,13 +20,13 @@ def deformation_subroutine_153(X0: int, Y0: int, NP: int = 480) -> tuple[int, in
     AH = AH + math.pi * DH
     DH = pow(DH, 4)
 
-    X1 = int((DH*math.cos(AH) + 1)*NP/2)
-    Y1 = int((DH*math.sin(AH) + 1)*NP/2)
+    X1 = (DH*math.cos(AH) + 1)*NP/2
+    Y1 = (DH*math.sin(AH) + 1)*NP/2
 
     return X1, Y1
 
 
-def deformation_subroutine_154(X0: int, Y0: int, NP: int = 480) -> tuple[int, int]:
+def deformation_subroutine_154(X0: float, Y0: float, NP: int = 480) -> tuple[float, float]:
     XH = X0/NP*2 - 1
     YH = Y0/NP*2 - 1
     DH = math.sqrt(XH*XH + YH*YH)
@@ -39,13 +39,13 @@ def deformation_subroutine_154(X0: int, Y0: int, NP: int = 480) -> tuple[int, in
     DH = pow(DH, 5)
     AH = AH + math.pi/4 * math.sin(2*math.pi*DH)
 
-    X1 = int((DH*math.cos(AH) + 1)*NP/2)
-    Y1 = int((DH*math.sin(AH) + 1)*NP/2)
+    X1 = (DH*math.cos(AH) + 1)*NP/2
+    Y1 = (DH*math.sin(AH) + 1)*NP/2
 
     return X1, Y1
 
 
-def deformation_subroutine_155(X0: int, Y0: int, NP: int = 480) -> tuple[int, int]:
+def deformation_subroutine_155(X0: float, Y0: float, NP: int = 480) -> tuple[float, float]:
     XH = X0/NP*2 - 1
     YH = Y0/NP*2 - 1
     DH = math.sqrt(XH*XH + YH*YH)
@@ -59,13 +59,13 @@ def deformation_subroutine_155(X0: int, Y0: int, NP: int = 480) -> tuple[int, in
     DH = pow(DH, 6)
     AH = pow(AH, 3)/(math.pi*math.pi)
 
-    X1 = int((DH*math.cos(AH) + 1)*NP/2)
-    Y1 = int((DH*math.sin(AH) + 1)*NP/2)
+    X1 = (DH*math.cos(AH) + 1)*NP/2
+    Y1 = (DH*math.sin(AH) + 1)*NP/2
 
     return X1, Y1
 
 
-def deformation_subroutine_156(X0: int, Y0: int, NP: int = 480) -> tuple[int, int]:
+def deformation_subroutine_156(X0: float, Y0: float, NP: int = 480) -> tuple[float, float]:
     XH = X0/NP*2 - 1
     YH = Y0/NP*2 - 1
     DH = math.sqrt(XH*XH + YH*YH)
@@ -79,13 +79,13 @@ def deformation_subroutine_156(X0: int, Y0: int, NP: int = 480) -> tuple[int, in
     DH = pow(DH, 6)
     AH = 4*AH*AH*AH/(math.pi*math.pi)
 
-    X1 = int((DH*math.cos(AH) + 1)*NP/2)
-    Y1 = int((DH*math.sin(AH) + 1)*NP/2)
+    X1 = (DH*math.cos(AH) + 1)*NP/2
+    Y1 = (DH*math.sin(AH) + 1)*NP/2
 
     return X1, Y1
 
 
-def deformation_subroutine_157(X0: int, Y0: int, NP: int = 480) -> tuple[int, int]:
+def deformation_subroutine_157(X0: float, Y0: float, NP: int = 480) -> tuple[float, float]:
     XH = X0/NP*2 - 1
     YH = Y0/NP*2 - 1
     DH = math.sqrt(XH*XH + YH*YH)
@@ -99,13 +99,13 @@ def deformation_subroutine_157(X0: int, Y0: int, NP: int = 480) -> tuple[int, in
     DH = pow(DH, 5)
     AH = 10*AH
 
-    X1 = int((DH*math.cos(AH) + 1)*NP/2)
-    Y1 = int((DH*math.sin(AH) + 1)*NP/2)
+    X1 = (DH*math.cos(AH) + 1)*NP/2
+    Y1 = (DH*math.sin(AH) + 1)*NP/2
 
     return X1, Y1
 
 
-def deformation_subroutine_158(X0: int, Y0: int, NP: int = 480) -> tuple[int, int]:
+def deformation_subroutine_158(X0: float, Y0: float, NP: int = 480) -> tuple[float, float]:
     XH = X0/NP*2 - 1
     YH = Y0/NP*2 - 1
     DH = math.sqrt(XH*XH + YH*YH)
@@ -119,13 +119,13 @@ def deformation_subroutine_158(X0: int, Y0: int, NP: int = 480) -> tuple[int, in
     DH = pow(DH, 5)
     AH = AH + math.pi/18*math.sin(6*math.pi*DH)
 
-    X1 = int((DH*math.cos(AH) + 1)*NP/2)
-    Y1 = int((DH*math.sin(AH) + 1)*NP/2)
+    X1 = (DH*math.cos(AH) + 1)*NP/2
+    Y1 = (DH*math.sin(AH) + 1)*NP/2
 
     return X1, Y1
 
 
-def deformation_subroutine_159(X0: int, Y0: int, NP: int = 480) -> tuple[int, int]:
+def deformation_subroutine_159(X0: float, Y0: float, NP: int = 480) -> tuple[float, float]:
     XH = X0/NP*2 - 1
     YH = Y0/NP*2 - 1
     DH = math.sqrt(XH*XH + YH*YH)
@@ -139,13 +139,13 @@ def deformation_subroutine_159(X0: int, Y0: int, NP: int = 480) -> tuple[int, in
     DH = pow(DH, 5)
     AH = 20*AH
 
-    X1 = int((DH*math.cos(AH) + 1)*NP/2)
-    Y1 = int((DH*math.sin(AH) + 1)*NP/2)
+    X1 = (DH*math.cos(AH) + 1)*NP/2
+    Y1 = (DH*math.sin(AH) + 1)*NP/2
 
     return X1, Y1
 
 
-def deformation_subroutine_160(X0: int, Y0: int, NP: int = 480) -> tuple[int, int]:
+def deformation_subroutine_160(X0: float, Y0: float, NP: int = 480) -> tuple[float, float]:
     XH = X0/NP*2 - 1
     YH = Y0/NP*2 - 1
     DH = math.sqrt(XH*XH + YH*YH)
@@ -158,13 +158,13 @@ def deformation_subroutine_160(X0: int, Y0: int, NP: int = 480) -> tuple[int, in
 
     AH = AH / math.pi*AH*math.copysign(1, AH)
 
-    X1 = int((DH*math.cos(AH) + 1)*NP/2)
-    Y1 = int(2*(DH*math.sin(AH) + 1)*NP/2)
+    X1 = (DH*math.cos(AH) + 1)*NP/2
+    Y1 = 2*(DH*math.sin(AH) + 1)*NP/2
 
     return X1, Y1
 
 
-def deformation_subroutine_161(X0: int, Y0: int, NP: int = 480) -> tuple[int, int]:
+def deformation_subroutine_161(X0: float, Y0: float, NP: int = 480) -> tuple[float, float]:
     XH = X0/NP*2 - 1
     YH = Y0/NP*2 - 1
     DH = math.sqrt(XH*XH + YH*YH)
@@ -177,13 +177,13 @@ def deformation_subroutine_161(X0: int, Y0: int, NP: int = 480) -> tuple[int, in
 
     AH = AH + math.pi/2*(1-DH)
 
-    X1 = int((DH*math.cos(AH) + 1)*NP/2)
-    Y1 = int(2*(DH*math.sin(AH) + 1)*NP/2)
+    X1 = (DH*math.cos(AH) + 1)*NP/2
+    Y1 = 2*(DH*math.sin(AH) + 1)*NP/2
 
     return X1, Y1
 
 
-def deformation_subroutine_162(X0: int, Y0: int, NP: int = 480) -> tuple[int, int]:
+def deformation_subroutine_162(X0: float, Y0: float, NP: int = 480) -> tuple[float, float]:
     XH = X0/NP*2 - 1
     YH = Y0/NP*2 - 1
     DH = math.sqrt(XH*XH + YH*YH)
@@ -196,13 +196,13 @@ def deformation_subroutine_162(X0: int, Y0: int, NP: int = 480) -> tuple[int, in
 
     DH = pow(DH, 2)
 
-    X1 = int((DH*math.cos(AH) + 1)*NP/2)
-    Y1 = int(2*(DH*math.sin(AH) + 1)*NP/2)
+    X1 = (DH*math.cos(AH) + 1)*NP/2
+    Y1 = 2*(DH*math.sin(AH) + 1)*NP/2
 
     return X1, Y1
 
 
-def deformation_subroutine_163(X0: int, Y0: int, NP: int = 480) -> tuple[int, int]:
+def deformation_subroutine_163(X0: float, Y0: float, NP: int = 480) -> tuple[float, float]:
     XH = X0/NP*2 - 1
     YH = Y0/NP*2 - 1
     DH = math.sqrt(XH*XH + YH*YH)
@@ -216,8 +216,8 @@ def deformation_subroutine_163(X0: int, Y0: int, NP: int = 480) -> tuple[int, in
     DH = pow(DH, 3)
     AH = AH + math.pi/18*math.sin(6*math.pi / DH)
 
-    X1 = int((DH*math.cos(AH) + 1)*NP/2)
-    Y1 = int(2*(DH*math.sin(AH) + 1)*NP/2)
+    X1 = (DH*math.cos(AH) + 1)*NP/2
+    Y1 = 2*(DH*math.sin(AH) + 1)*NP/2
 
     return X1, Y1
 

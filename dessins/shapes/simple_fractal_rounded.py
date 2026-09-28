@@ -24,11 +24,11 @@ def draw_rounded_corner(X0: int,
 
         if I == 0 and K4 == 0:
             turtle.penup()
-            turtle.goto(int(X), int(Y))
+            turtle.goto(X, Y)
             turtle.pendown()
 
         else:
-            turtle.goto(int(X), int(Y))
+            turtle.goto(X, Y)
 
 
 def draw_simple_fractal_rounded(M: int = 1,

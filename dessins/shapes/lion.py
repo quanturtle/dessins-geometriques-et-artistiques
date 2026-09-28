@@ -33,8 +33,8 @@ def draw_lion(NP: int = 480):
             B = DATA[i]
             i += 1
 
-        X = int(NP * (A + 5) / 25)
-        Y = int(NP * (B + 5) / 25)
+        X = NP * (A + 5) / 25
+        Y = NP * (B + 5) / 25
 
         if B1 == 0:
             turtle.penup()

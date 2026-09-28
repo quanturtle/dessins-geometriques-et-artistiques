@@ -32,8 +32,8 @@ def draw_bird_fish(NP: int = 480):
             B = DATA[i]
             i += 1
 
-        X = int(NP * (A + 10) / 15)
-        Y = int(NP * (B + 10) / 15)
+        X = NP * (A + 10) / 15
+        Y = NP * (B + 10) / 15
 
         if B1 == 0:
             turtle.penup()

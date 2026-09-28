@@ -61,8 +61,8 @@ def draw_d3data(DC: int = 2,
         
         KP = DC/MX
         XX, YY = -KP*MY, KP*MZ
-        X_ = int(NP * (0.5 + XX/TC))
-        Y_ = int(NP * (0.5 + YY/TC))
+        X_ = NP * (0.5 + XX/TC)
+        Y_ = NP * (0.5 + YY/TC)
         
         if B1 == 1:
             turtle.pendown()

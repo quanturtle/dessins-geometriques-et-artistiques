@@ -2,9 +2,9 @@ import math
 import turtle
 from typing import Callable
 
-def default_deformation_subroutine(X0: int, 
-                                   Y0: int,
-                                   NP: int = 480) -> tuple[int, int]:
+def default_deformation_subroutine(X0: float,
+                                   Y0: float,
+                                   NP: int = 480) -> tuple[float, float]:
     XH = X0/NP*2 - 1
     YH = Y0/NP*2 - 1
     DH = math.sqrt(XH*XH + YH*YH)
@@ -17,8 +17,8 @@ def default_deformation_subroutine(X0: int,
     DH = pow(DH, 2)
     AH = AH
     
-    X1 = int((DH*math.cos(AH) + 1)*NP/2)
-    Y1 = int((DH*math.sin(AH) + 1)*NP/2)
+    X1 = (DH*math.cos(AH) + 1)*NP/2
+    Y1 = (DH*math.sin(AH) + 1)*NP/2
 
     return X1, Y1
 

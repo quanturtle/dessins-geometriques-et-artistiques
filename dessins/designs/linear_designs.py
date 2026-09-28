@@ -7,8 +7,8 @@ from dessins.shapes import draw_complete_bipartite_graph, draw_linear_modulo, dr
 from .spec import Design
 
 
-def compute_Y_109(NP: int, K2: float, i: int, N: int) -> int:
-    return int(NP * 0.5 * (1 + math.cos(K2 * i * math.pi / N)))
+def compute_Y_109(NP: int, K2: float, i: int, N: int) -> float:
+    return NP * 0.5 * (1 + math.cos(K2 * i * math.pi / N))
 
 
 def I1_func_109(i: int, H: int, N: int) -> float:
