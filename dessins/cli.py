@@ -6,9 +6,9 @@ import sys
 import turtle
 from typing import Any, Callable
 
-from cad import capture_points, generate_cad
-from designs import DESIGNS
-from shapes import SHAPES
+from dessins.cad import capture_points, generate_cad
+from dessins.designs import DESIGNS
+from dessins.shapes import SHAPES
 
 COMMON_ARGS = {
     "--animation": {

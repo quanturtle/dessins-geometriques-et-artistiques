@@ -2,7 +2,7 @@
 
 import math
 
-from shapes import draw_complete_bipartite_graph, draw_linear_modulo, draw_linear_sticks
+from dessins.shapes import draw_complete_bipartite_graph, draw_linear_modulo, draw_linear_sticks
 
 from .spec import Design
 

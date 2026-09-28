@@ -2,7 +2,7 @@
 
 import math
 
-from shapes import draw_elastic_grid
+from dessins.shapes import draw_elastic_grid
 
 from .spec import Design
 

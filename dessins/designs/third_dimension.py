@@ -1,6 +1,6 @@
 """Third-dimension designs (designs 201-252) from the book."""
 
-from shapes import draw_d3cube, draw_d3data, draw_d3structures
+from dessins.shapes import draw_d3cube, draw_d3data, draw_d3structures
 
 from .spec import Design
 

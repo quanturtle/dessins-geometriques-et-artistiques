@@ -2,7 +2,7 @@
 
 import math
 
-from shapes import draw_fractal_star
+from dessins.shapes import draw_fractal_star
 
 from .spec import Design
 

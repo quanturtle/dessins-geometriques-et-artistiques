@@ -2,7 +2,7 @@
 
 import math
 
-from shapes import (
+from dessins.shapes import (
     draw_composition_1,
     draw_composition_2,
     draw_prettygon,

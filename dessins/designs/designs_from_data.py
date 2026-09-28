@@ -3,7 +3,7 @@
 import math
 import turtle
 
-from shapes import draw_bird_fish, draw_horse, draw_lion, draw_smurf
+from dessins.shapes import draw_bird_fish, draw_horse, draw_lion, draw_smurf
 
 from .spec import Design
 

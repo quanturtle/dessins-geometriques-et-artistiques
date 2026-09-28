@@ -2,7 +2,7 @@
 
 import math
 
-from shapes import draw_orbiting_curves, draw_rotating_curves, draw_spiraling_curves
+from dessins.shapes import draw_orbiting_curves, draw_rotating_curves, draw_spiraling_curves
 
 from .spec import Design
 

@@ -2,7 +2,7 @@
 
 import math
 
-from shapes import draw_dragon
+from dessins.shapes import draw_dragon
 
 from .spec import Design
 

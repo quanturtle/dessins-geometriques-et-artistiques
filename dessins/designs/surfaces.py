@@ -2,7 +2,7 @@
 
 import math
 
-from shapes import draw_surface
+from dessins.shapes import draw_surface
 
 from .spec import Design
 

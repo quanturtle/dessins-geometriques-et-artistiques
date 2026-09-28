@@ -2,7 +2,7 @@
 
 import math
 
-from shapes import draw_simple_fractal, draw_simple_fractal_deformed, draw_simple_fractal_rounded
+from dessins.shapes import draw_simple_fractal, draw_simple_fractal_deformed, draw_simple_fractal_rounded
 
 from .spec import Design
 
