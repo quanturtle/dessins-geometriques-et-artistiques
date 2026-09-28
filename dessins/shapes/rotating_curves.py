@@ -25,7 +25,7 @@ def draw_rotating_curves(
     Y_func: Callable = default_Y_func,
     NP: int = 480,
 ) -> None:
-    for i in range(N):
+    for i in range(N + 1):
         S_ = S_func(i, N)
         AN = 2 * math.pi * i / N
 

@@ -27,7 +27,7 @@ def draw_orbiting_curves(
     Y_func: Callable = default_y_func,
     NP: int = 480,
 ) -> None:
-    for i in range(N):
+    for i in range(N + 1):
         R2 = R2_func(N, i, NP)
 
         A1 = 2 * math.pi * i / N * T1
