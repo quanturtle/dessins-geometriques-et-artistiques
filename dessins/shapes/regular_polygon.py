@@ -5,8 +5,8 @@ import turtle
 def draw_regular_polygon(
     CX: float = 240,
     CY: float = 240,
-    K: int = 5,
-    R: float = 240 * 0.45,
+    K: int = 4,
+    R: float = 480 * 0.45,
     AD: float = math.pi / 4,
     NP: int = 480,
 ) -> None:

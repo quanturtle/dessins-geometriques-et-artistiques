@@ -5,9 +5,9 @@ import turtle
 def draw_regular_star(
     CX: float = 240,
     CY: float = 240,
-    K: int = 8,
+    K: int = 5,
     H: int = 3,
-    R: float = 130,
+    R: float = 480 * 0.45,
     AD: float = math.pi / 2,
     NP: int = 480,
 ) -> None:
