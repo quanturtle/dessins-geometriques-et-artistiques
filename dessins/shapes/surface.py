@@ -80,8 +80,6 @@ def draw_surface(
 
             J = I1
             while (G > 0 and J <= I2) or (G < 0 and J >= I2):
-                skip = False
-
                 if E3 == 1:
                     X = (J - I1) / (I2 - I1) if I2 != I1 else 0
                 else:
@@ -100,29 +98,28 @@ def draw_surface(
                 YF_t = YF + translate_y
 
                 if 0 <= J <= M:
+                    # the first band moves the pen, then falls through like the book's line 700
                     if J == I1:
                         turtle.penup()
                         turtle.goto(XF_t, YF_t)
 
-                    elif E2 == 1:
+                    if E2 == 1:
                         turtle.pendown()
                         turtle.goto(XF_t, YF_t)
 
-                        skip = True
+                    elif YF > MI[J] and YF < MA[J]:
+                        turtle.penup()
+                        turtle.goto(XF_t, YF_t)
 
-                    elif not skip:
-                        if YF > MI[J] and YF < MA[J]:
-                            turtle.penup()
-                            turtle.goto(XF_t, YF_t)
-                        else:
-                            if YF > MA[J]:
-                                MA[J] = YF
+                    else:
+                        if YF > MA[J]:
+                            MA[J] = YF
 
-                            if YF < MI[J]:
-                                MI[J] = YF
+                        if YF < MI[J]:
+                            MI[J] = YF
 
-                            turtle.pendown()
-                            turtle.goto(XF_t, YF_t)
+                        turtle.pendown()
+                        turtle.goto(XF_t, YF_t)
 
                 J += G
 
