@@ -1,3 +1,5 @@
+"""Le programme JOLIGONES (designs 26-33)."""
+
 import math
 import turtle
 

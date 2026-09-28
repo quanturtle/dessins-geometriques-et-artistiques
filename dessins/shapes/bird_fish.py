@@ -1,3 +1,5 @@
+"""Le programme OISEAUX-POISSONS (design 46; design 47 is its variant in the catalog)."""
+
 import turtle
 
 

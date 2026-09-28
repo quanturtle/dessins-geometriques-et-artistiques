@@ -1,3 +1,5 @@
+"""Le programme COURBES TOURNANTES (designs 87-96)."""
+
 import math
 import turtle
 from typing import Callable

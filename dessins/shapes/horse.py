@@ -1,3 +1,5 @@
+"""Le programme CHEVAL (design 34; designs 35-43 are its variants in the catalog)."""
+
 import turtle
 
 

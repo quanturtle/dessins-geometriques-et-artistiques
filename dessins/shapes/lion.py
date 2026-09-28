@@ -1,3 +1,5 @@
+"""Le programme LION (design 44; design 45 is its variant in the catalog)."""
+
 import turtle
 
 

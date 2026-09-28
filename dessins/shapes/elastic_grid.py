@@ -1,3 +1,5 @@
+"""Le programme QUADRILLAGES ÉLASTIQUES (designs 164-176)."""
+
 import math
 import turtle
 from typing import Callable

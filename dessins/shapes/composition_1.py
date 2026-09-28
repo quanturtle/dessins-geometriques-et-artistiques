@@ -1,3 +1,5 @@
+"""Le programme COMPOSITION 1 (designs 13-19)."""
+
 import math
 
 from .regular_star import draw_regular_star

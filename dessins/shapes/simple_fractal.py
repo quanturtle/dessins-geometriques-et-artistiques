@@ -1,3 +1,5 @@
+"""Le programme FRACTALES SIMPLES (designs 115-135)."""
+
 import math
 import turtle
 

@@ -1,3 +1,5 @@
+"""Le programme BIPARTI COMPLET (designs 101-104)."""
+
 import turtle
 
 

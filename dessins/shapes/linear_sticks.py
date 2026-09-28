@@ -1,3 +1,5 @@
+"""Le programme LINÉAIRES BÂTONS (designs 110-114)."""
+
 import math
 import turtle
 from typing import Callable

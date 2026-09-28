@@ -1,3 +1,5 @@
+"""Le programme POLYGONES RÉGULIERS (designs 1-6)."""
+
 import math
 import turtle
 

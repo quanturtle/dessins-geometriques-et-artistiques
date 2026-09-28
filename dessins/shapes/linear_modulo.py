@@ -1,3 +1,5 @@
+"""Le programme LINÉAIRES MODULO (designs 105-109)."""
+
 import math
 import turtle
 from typing import Callable

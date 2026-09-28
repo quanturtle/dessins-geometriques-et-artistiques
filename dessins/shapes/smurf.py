@@ -1,3 +1,5 @@
+"""Le programme SMURF (design 48; design 49 is its variant in the catalog)."""
+
 import turtle
 
 

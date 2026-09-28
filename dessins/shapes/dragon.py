@@ -1,3 +1,5 @@
+"""Le programme DRAGONS (designs 50-64)."""
+
 import math
 import turtle
 from typing import Callable

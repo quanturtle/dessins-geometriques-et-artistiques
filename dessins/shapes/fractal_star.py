@@ -1,3 +1,5 @@
+"""Le programme ÉTOILES FRACTALES (designs 65-77)."""
+
 import math
 import turtle
 

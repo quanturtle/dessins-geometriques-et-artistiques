@@ -1,3 +1,5 @@
+"""Le programme FRACTALES SIMPLES DÉFORMÉES (designs 152-163)."""
+
 import math
 import turtle
 from typing import Callable

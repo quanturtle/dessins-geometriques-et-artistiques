@@ -1,3 +1,5 @@
+"""Le programme ÉTOILES RÉGULIÈRES (designs 7-12)."""
+
 import math
 import turtle
 
